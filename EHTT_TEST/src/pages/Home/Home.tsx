@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { DataGrid, GridRenderCellParams } from "@mui/x-data-grid";
 import { People } from "@/data";
+import { Person } from "@/models";
 
 export interface HomeInterface {}
 
 const Home: React.FC<HomeInterface> = () => {
+  const [selectedPeople, setSelectedPeople] = useState<Person[]>([]);
   const pageSize = 5;
   const columns = [
+    {
+      field: "actions",
+      headerName: "",
+      width: 50,
+      renderCell: (params: GridRenderCellParams) => <>{}</>,
+    },
     {
       field: "name",
       headerName: "Name",
